@@ -52,7 +52,7 @@ output "instance_address" {
 
 resource "null_resource" "GitLabProvision" {
   provisioner "local-exec" {
-    command = "sleep 20 && echo -e \"[GitLab-server]\n${openstack_compute_instance_v2.instance.access_ip_v4} ansible_connection=ssh ansible_ssh_user=${var.ans_ssh_user} ansible_ssh_pass=${var.ans_ssh_pass}\" > /home/ansible-pay/Gitlab/hosts &&  ansible-playbook -i /home/ansible-pay/Gitlab/hosts /home/ansible-pay/Gitlab/gitlab.yml"
+command = "sleep 40 && echo -e \"[GitLab-server]\n${openstack_compute_instance_v2.instance.access_ip_v4} ansible_connection=ssh ansible_ssh_user=${var.ans_ssh_user} ansible_ssh_pass=${var.ans_ssh_pass}\" > /home/ansible-pay/Gitlab/hosts &&  ansible-playbook -i /home/ansible-pay/Gitlab/hosts /home/ansible-pay/Gitlab/gitlab.yml"
   }
 depends_on = ["openstack_compute_instance_v2.instance"]
 }
