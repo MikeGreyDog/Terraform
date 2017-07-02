@@ -2,7 +2,7 @@ variable "instance_name" {}
 variable "region_name" {}
 variable "img_name" {}
 variable "flav_name" {}
-variable "keypair_name" {}
+#variable "keypair_name" {}
 variable "sec_group_name" {}
 variable "net_id" {}
 variable "cnt" {}
@@ -30,7 +30,7 @@ resource "openstack_compute_instance_v2" "instance" {
   name = "${var.instance_name}-${count.index}"
   image_name = "${var.img_name}"
   flavor_name = "${var.flav_name}"
-  key_pair = "${var.keypair_name}"
+ #key_pair = "${var.keypair_name}"
   security_groups = [
     "${var.sec_group_name}"]
   metadata {
