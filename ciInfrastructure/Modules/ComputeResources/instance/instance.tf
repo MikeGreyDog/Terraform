@@ -57,7 +57,7 @@ output "instance_address" {
   value = "${openstack_compute_instance_v2.instance.access_ip_v4}"
 }
 
-resource "null_resource" "GitLabProvision" {
+resource "null_resource" "ServiceProvision" {
   provisioner "local-exec" {
     command = "sleep 40 && echo -e \"[${var.server_name}]\n${openstack_compute_instance_v2.instance.access_ip_v4} ansible_connection=ssh ansible_ssh_user=${var.ans_ssh_user} ansible_ssh_pass=${var.ans_ssh_pass}\" >> /home/ansible-pay/Ansible/hosts &&  ansible-playbook -i /home/ansible-pay/Ansible/hosts ${var.playbook}"
   }
