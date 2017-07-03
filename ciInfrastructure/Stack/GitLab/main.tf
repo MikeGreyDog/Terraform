@@ -8,7 +8,7 @@ variable "instance_name" {}
 variable "region_name" {}
 variable "img_name" {}
 variable "flav_name" {}
-variable "keypair_name" {}
+#variable "keypair_name" {}
 variable "sec_group_name" {}
 variable "net_id" {}
 /*variable "device_id" {}
@@ -16,7 +16,7 @@ variable "source_name" {}
 variable "size" {}
 variable "index" {}
 variable "dest_type" {}*/
-variable "keypair_value" {}
+#variable "keypair_value" {}
 variable "cnt" {}
 variable "ans_ssh_user" {}
 variable "ans_ssh_pass" {}
@@ -38,12 +38,12 @@ provider "openstack" {
   auth_url = "${var.openstack_auth_url}"
 }
 
-module "keypair" {
+/*module "keypair" {
   source = "../../Modules/ComputeResources/keypair"
   keypair_value = "${var.keypair_value}"
   keypair_name = "${var.keypair_name}"
   region_name = "${var.region_name}"
-}
+}*/
 
 /*module "floatingIP" {
   source = "../../Modules/ComputeResources/floatingIP"
@@ -57,7 +57,7 @@ module "instance" {
   region_name = "${var.region_name}"
   img_name = "${var.img_name}"
   flav_name = "${var.flav_name}"
-  keypair_name = "${module.keypair.keypair_name_value}"
+  #keypair_name = "${module.keypair.keypair_name_value}"
   //keypair_name = "${var.keypair_name}"
   sec_group_name = "${var.sec_group_name}"
   net_id = "${var.net_id}"
